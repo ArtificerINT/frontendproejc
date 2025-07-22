@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aksels' Whimsical CV</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #fef6e4;
+      color: #001858;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #f582ae;
+    }
+    button {
+      margin: 0.5rem;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #8bd3dd;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #f582ae;
+      color: white;
+    }
+    pre {
+      background: #fcd5ce;
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌈 Aksels' Magical CV Explorer ✨</h1>
+  <div style="text-align: center;">
+    <button onclick="loadData('personal_info')">Personal Info</button>
+    <button onclick="loadData('experience')">Experience</button>
+    <button onclick="loadData('education')">Education</button>
+    <button onclick="loadData('skills')">Skills</button>
+    <button onclick="loadData('contact')">Contact</button>
+    <button onclick="loadData('other_experience')">Other Experience</button>
+  </div>
+  <pre id="output">👈 Click a button above to see magic unfold!</pre>
+
+  <script>
+    const BASE_URL = "https://repo1-ghn8.onrender.com/"; // Replace this with your live URL
+
+    async function loadData(endpoint) {
+      const output = document.getElementById('output');
+      output.textContent = "🔄 Loading " + endpoint + "...";
+      try {
+        const response = await fetch(`${BASE_URL}/${endpoint}`);
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.textContent = "⚠️ Error loading data: " + err;
+      }
+    }
+  </script>
+
+</body>
+</html>
