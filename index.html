@@ -1,70 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Aksels' Whimsical CV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aksels' CV Journey</title>
   <style>
-    body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #fef6e4;
-      color: #001858;
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;600&display=swap');
+
+    html, body {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #e2e8f0;
+      scroll-behavior: smooth;
     }
-    h1 {
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      color: #f582ae;
+      background: radial-gradient(ellipse at center, #38bdf8 0%, #1e3a8a 100%);
+      color: #f8fafc;
+      position: relative;
+      overflow: hidden;
     }
-    button {
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: rotate 60s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 3rem 2rem;
+      line-height: 1.8;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.2s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: #93c5fd;
+      margin-bottom: 1rem;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      width: 100px;
+      background: linear-gradient(to right, #38bdf8, #a78bfa);
+      border-radius: 999px;
+    }
+
+    .data-section {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .data-section select, .data-section button, .data-section input {
+      padding: 0.6rem 1rem;
       margin: 0.5rem;
-      padding: 0.7rem 1rem;
+      font-size: 1rem;
       border: none;
       border-radius: 8px;
-      background: #8bd3dd;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    button:hover {
-      background: #f582ae;
+      background: #334155;
       color: white;
+      cursor: pointer;
     }
-    pre {
-      background: #fcd5ce;
-      padding: 1rem;
-      border-radius: 8px;
+
+    #dataDisplay {
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      font-family: monospace;
       white-space: pre-wrap;
-      margin-top: 1rem;
+      word-wrap: break-word;
+    }
+
+    .db-map {
+      margin: 2rem auto;
+      max-width: 800px;
+      background: rgba(255,255,255,0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      border-left: 3px solid #38bdf8;
     }
   </style>
 </head>
 <body>
-
-  <h1>🌈 Aksels' Magical CV Explorer ✨</h1>
-  <div style="text-align: center;">
-    <button onclick="loadData('personal_info')">Personal Info</button>
-    <button onclick="loadData('experience')">Experience</button>
-    <button onclick="loadData('education')">Education</button>
-    <button onclick="loadData('skills')">Skills</button>
-    <button onclick="loadData('contact')">Contact</button>
-    <button onclick="loadData('other_experience')">Other Experience</button>
+  <div class="hero">
+    <h1>Aksels Kaups</h1>
+    <p>A journey through growth, creativity, and building from scratch.</p>
   </div>
-  <pre id="output">👈 Click a button above to see magic unfold!</pre>
+
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+    <p>From hands-on growth marketing to managing client relationships and conducting data-driven analysis, my experience spans startups to global fintech players. At Adyen, SEB, and AppXite, I’ve thrived in pressure, adapted quickly, and created structure where there was none.</p>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <p>University of Amsterdam has been a cornerstone of my thinking — blending research with real-world execution. From qualitative insights to strategic frameworks, I carry both discipline and curiosity into every project I pursue.</p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <p>Strategy. Communication. Growth. Systems. I build pipelines, structure chaos, and speak the language of data and people alike. Whether it's Excel, SQL, Figma, or email copy, I move between detail and big-picture fluently.</p>
+  </section>
+
+  <section class="section" id="human">
+    <h2>Who I Am</h2>
+    <p>I care about craft. About challenge. About creating something magnetic and useful. Whether I’m windsurfing, cooking the perfect ribeye, or launching a campaign — I go all in. This CV is not a summary — it’s a starting point.</p>
+  </section>
+
+  <section class="section data-section">
+    <h2>📡 Query My Live CV</h2>
+    <select id="endpoint">
+      <option value="personal_info">Personal Info</option>
+      <option value="experience">Experience</option>
+      <option value="education">Education</option>
+      <option value="skills">Skills</option>
+      <option value="contact">Contact</option>
+      <option value="other_experience">Other Experience</option>
+    </select>
+    <button onclick="fetchData()">Fetch</button>
+
+    <br><br>
+    <input id="sqlInput" type="text" placeholder="Enter SQL (e.g. SELECT * FROM experience)" style="width:80%" />
+    <button onclick="runSQL()">Run SQL</button>
+
+    <div class="db-map">
+      <strong>Database Tables:</strong><br>
+      - <code>experience(id, start_date, end_date, role, company, location, description)</code><br>
+      - <code>education(id, institution, location, degree)</code><br>
+      - <code>skills(id, skill)</code><br>
+      - <code>contact(id, email, location)</code><br>
+      - <code>personal_info(id, name, summary, location, email)</code><br>
+      - <code>other_experience(id, description)</code>
+    </div>
+
+    <div id="dataDisplay">Select a section or run a SQL query to fetch data from the live CV API.</div>
+  </section>
 
   <script>
-    const BASE_URL = "https://repo1-ghn8.onrender.com";
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
 
-    async function loadData(endpoint) {
-      const output = document.getElementById('output');
-      output.textContent = "🔄 Loading " + endpoint + "...";
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
+    async function fetchData() {
+      const selection = document.getElementById('endpoint').value;
+      const display = document.getElementById('dataDisplay');
+      display.textContent = 'Fetching...';
       try {
-        const response = await fetch(`${BASE_URL}/${endpoint}`);
+        const response = await fetch(`https://repo1-ghn8.onrender.com/${selection}`);
         const data = await response.json();
-        output.textContent = JSON.stringify(data, null, 2);
+        display.textContent = JSON.stringify(data, null, 2);
       } catch (err) {
-        output.textContent = "⚠️ Error loading data: " + err;
+        display.textContent = '⚠️ Error: ' + err;
+      }
+    }
+
+    async function runSQL() {
+      const query = document.getElementById('sqlInput').value;
+      const display = document.getElementById('dataDisplay');
+      display.textContent = 'Running SQL...';
+      try {
+        const response = await fetch(`https://repo1-ghn8.onrender.com/raw_sql`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+        const data = await response.json();
+        display.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        display.textContent = '⚠️ SQL Error: ' + err;
       }
     }
   </script>
-
 </body>
 </html>
